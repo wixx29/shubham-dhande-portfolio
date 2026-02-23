@@ -25,8 +25,7 @@ body{
     line-height:1.6;
 }
 
-/* NAVBAR */
-
+/* NAVBAR BASE */
 nav{
     position:fixed;
     width:100%;
@@ -39,27 +38,101 @@ nav{
     z-index:1000;
 }
 
-.logo{
-    font-weight:600;
-    font-size:18px;
-    letter-spacing:1px;
-}
-
 nav ul{
     display:flex;
     list-style:none;
     gap:35px;
 }
 
+/* NAVBAR ADVANCED THEME */
+
+nav{
+    backdrop-filter: blur(12px);
+    background: rgba(14,14,16,0.85);
+    border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+/* Nav Links Base */
 nav ul li a{
     text-decoration:none;
     color:#aaa;
     font-size:14px;
+    letter-spacing:1px;
+    position:relative;
+    padding:6px 0;
+    transition:all 0.3s ease;
+}
+
+/* Animated Underline */
+nav ul li a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:0%;
+    height:2px;
+    background:linear-gradient(90deg,#4f9cff,#00f2fe);
+    transition:0.3s ease;
+}
+
+/* Hover Effects */
+nav ul li a:hover{
+    color:#fff;
+    text-shadow:0 0 10px rgba(79,156,255,0.6);
+}
+
+nav ul li a:hover::after{
+    width:100%;
+}
+
+nav ul li{
+    position:relative;
+}
+
+nav ul li::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:radial-gradient(circle at center, rgba(79,156,255,0.15), transparent 70%);
+    opacity:0;
     transition:0.3s;
 }
 
-nav ul li a:hover{
-    color:#ffffff;
+nav ul li:hover::before{
+    opacity:1;
+}
+
+/* HAMBURGER */
+.hamburger{
+    display:none;
+    font-size:26px;
+    cursor:pointer;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+    .hamburger{
+        display:block;
+    }
+
+    nav ul{
+        position:absolute;
+        top:70px;
+        left:0;
+        width:100%;
+        background:#0e0e10;
+        flex-direction:column;
+        align-items:center;
+        gap:25px;
+        padding:20px 0;
+
+        display:none;
+    }
+
+    nav ul.active{
+        display:flex;
+    }
 }
 
 /* SECTIONS */
@@ -139,6 +212,7 @@ section{
     border:1px solid #1f1f25;
     transition:0.3s;
     text-align:center;
+    border-radius: 25px;
 }
 
 .skill:hover{
@@ -158,6 +232,7 @@ section{
     border:1px solid #1f1f25;
     padding:25px;
     transition:0.3s;
+    border-radius: 25px;
 }
 
 .project-card:hover{
@@ -206,6 +281,7 @@ input:focus, textarea:focus{
     transition:0.3s;
     font-size:14px;
     margin-bottom:20px;
+    border-radius: 25px;
 }
 
 .contact-btn:hover{
@@ -241,6 +317,41 @@ input:focus, textarea:focus{
     max-height:200px;
 }
 
+/* COPY BUTTON */
+.copy-btn{
+    margin-left:10px;
+    padding:4px 10px;
+    font-size:12px;
+    border:1px solid #4f9cff;
+    background:transparent;
+    color:#4f9cff;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.copy-btn:hover{
+    background:#4f9cff;
+    color:white;
+}
+
+/* WHATSAPP BUTTON */
+.whatsapp-btn{
+    display:inline-block;
+    margin-top:15px;
+    padding:10px 20px;
+    background:#25D366;
+    color:white;
+    text-decoration:none;
+    font-size:14px;
+    transition:0.3s;
+}
+
+.whatsapp-btn:hover{
+    background:#1ebd5a;
+}
+
+
+
 /* FOOTER */
 
 footer{
@@ -267,6 +378,111 @@ footer{
         padding:100px 6%;
     }
 }
+
+/* CENTER EMAIL FORM */
+
+#contact{
+    align-items: center;
+}
+
+#contactForm{
+    margin-top:40px;
+    width:100%;
+    max-width:500px;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+#contactForm input,
+#contactForm textarea{
+    width:100%;
+}
+
+/* Optional: make it look more premium */
+#contactForm{
+    padding:30px;
+    border:1px solid #1f1f25;
+    background:#111;
+}
+
+/* CENTER CONTACT SECTION CONTENT */
+#contact{
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* Horizontal Center */
+    text-align: center;
+}
+
+/* CENTER THE FORM */
+#contactForm{
+    width: 100%;
+    max-width: 500px;
+    margin: 40px auto 0 auto;   /* Center horizontally */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Make inputs full width */
+#contactForm input,
+#contactForm textarea{
+    width: 100%;
+}
+
+/* Optional: Make it look cleaner and professional */
+#contactForm{
+    padding: 35px;
+    background: #111;
+    border: 1px solid #1f1f25;
+    border-radius: 8px;
+}
+
+/* VIEW PROJECT BUTTON */
+
+.view-project-btn{
+    margin-top:30px;
+    padding:14px 32px;
+    border:1px solid #4f9cff;
+    background:transparent;
+    color:#4f9cff;
+    font-size:14px;
+    letter-spacing:1px;
+    cursor:pointer;
+    transition:all 0.3s ease;
+    position:relative;
+    overflow:hidden;
+    border-radius: 25px;
+}
+
+/* Left alignment */
+.home{
+    align-items:flex-start;
+}
+
+/* Hover effect */
+.view-project-btn:hover{
+    background:#4f9cff;
+    color:#fff;
+    box-shadow:0 0 20px rgba(79,156,255,0.5);
+    transform:translateY(-3px);
+}
+
+/* Arrow slide animation */
+.view-project-btn::after{
+    content:"→";
+    position:absolute;
+    right:20px;
+    opacity:0;
+    transition:0.3s;
+}
+
+.view-project-btn:hover::after{
+    right:15px;
+    opacity:1;
+}
+
+
 </style>
 </head>
 
@@ -274,13 +490,18 @@ footer{
 
 <nav>
     <div class="logo">Shubham Dhande</div>
-    <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+
+    <ul id="navLinks">
+        <li><a href="#home" onclick="closeMenu()">Home</a></li>
+        <li><a href="#about" onclick="closeMenu()">About</a></li>
+        <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
+        <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
+        <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
     </ul>
+
+    <div class="hamburger" onclick="toggleMenu()">
+        ☰
+    </div>
 </nav>
 
 <section class="home" id="home">
@@ -290,7 +511,11 @@ footer{
         A passionate web developer focused on building modern,
         responsive and performance-optimized websites.
     </p>
-    <button class="btn">View Projects</button>
+
+    <button class="view-project-btn" onclick="scrollToProjects()">
+    View Projects →
+</button>
+
 </section>
 
 <section class="about" id="about">
@@ -331,7 +556,6 @@ footer{
     </div>
 </section>
 
-<section id="contact">
 
     <section id="contact">
     <h2 class="section-title">Contact</h2>
@@ -351,13 +575,41 @@ footer{
     </div>
 </section>
 
-    <h2 class="section-title">Contact</h2>
-    <form>
-        <input type="text" placeholder="Your Name">
-        <input type="email" placeholder="Your Email">
-        <textarea rows="5" placeholder="Your Message"></textarea>
-        <button class="btn">Send Message</button>
+
+
+    <div class="contact-info" id="contactInfo">
+        <p>
+            <strong>Email:</strong> 
+            shubhamdhande.dev@gmail.com
+            <button class="copy-btn" onclick="copyText('shubhamdhande.dev@gmail.com')">Copy</button>
+        </p>
+
+        <p>
+            <strong>Phone:</strong> 
+            8446021651
+            <button class="copy-btn" onclick="copyText('8446021651')">Copy</button>
+        </p>
+
+        <p>
+            <strong>LinkedIn:</strong> 
+            <a href="https://www.linkedin.com/in/shubham-dhande-42a042310" target="_blank">
+                Visit Profile
+            </a>
+        </p>
+
+        <a href="https://wa.me/918446021651" target="_blank" class="whatsapp-btn">
+            Chat on WhatsApp
+        </a>
+    </div>
+
+    <!-- Email Form -->
+    <form id="contactForm">
+        <input type="text" name="from_name" placeholder="Your Name" required>
+        <input type="email" name="from_email" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn">Send Message</button>
     </form>
+
 </section>
 
 <footer>
@@ -392,5 +644,53 @@ function toggleContact(){
 }
 </script>
 
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+
+// COPY FUNCTION
+function copyText(text){
+    navigator.clipboard.writeText(text);
+    alert("Copied: " + text);
+}
+
+// EMAILJS INIT
+(function(){
+    emailjs.init("8bqaI7wrizypK_Gon"); 
+})();
+
+// SEND EMAIL
+document.getElementById("contactForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    emailjs.sendForm("service_sgdsg6d", "template_t25m0wb", this)
+    .then(function(){
+        alert("Message Sent Successfully!");
+        document.getElementById("contactForm").reset();
+    }, function(error){
+        alert("Failed to send message.");
+    });
+});
+
+</script>
+
+<script>
+function toggleMenu(){
+    document.getElementById("navLinks").classList.toggle("active");
+}
+
+function closeMenu(){
+    document.getElementById("navLinks").classList.remove("active");
+}
+
+function scrollToProjects(){
+    document.getElementById("projects").scrollIntoView({
+        behavior:"smooth"
+    });
+}
+</script>
+
 </body>
+
 </html>
